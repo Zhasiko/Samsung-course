@@ -1,0 +1,1 @@
+print("S =",int(input())*int(input()))
