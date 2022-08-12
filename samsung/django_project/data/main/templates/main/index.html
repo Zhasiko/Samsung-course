@@ -1,0 +1,22 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+    Index page
+{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<a href="{% url 'main:profile' %}">Profile page</a>
+
+{% if products %}
+    {% for i in products %}
+        <p>{{i.name }}</p>
+        <p>{{i.description }}</p>
+        <p>{{i.price }}</p>
+        <p>{{i.rating }}</p>
+    {% endfor %}
+{% else %}
+    <p>Магазин пуст</p>
+{% endif %}
+{% endblock %}

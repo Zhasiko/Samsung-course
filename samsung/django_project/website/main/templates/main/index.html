@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Main page
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div cass="col-sm">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center display-4">Films</h1>
+
+                {% if products %}
+                    {% for p in products %}
+                        <div class = 'card'>
+                            <div class="card-body">
+                                <h1 class="card-title">{{ p.name }}</h1>
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>Description</td>
+                                        <td>{{ p.description }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cost</td>
+                                        <td>{{ p.cost }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                {% else %}
+                    <p class="text-center">No products</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

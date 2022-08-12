@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+{% block title %}
+    Index page
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+    <div class="card" style="width: 18rem;">
+      <img src="{% static 'main/bayern.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Index page</h5>
+        <a href="{% url 'main:profile'%}" class="btn btn-primary">Go</a>
+      </div>
+    </div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col">avatar</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% if employees %}
+    {% for emp in employees %}
+        <tr>
+          <th scope="row">{{ emp.fullname }}</th>
+          <th scope="row"><img src="{{MEDIA_URL}}{{emp.avatar}}" alt="" width="100" height="200"></th>
+        </tr>
+    {% endfor %}
+  {% else %}
+
+  {% endif %}
+
+  </tbody>
+</table>
+
+  <form action="{% url 'main:index' %}" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <input type="text" name="fullname" placeholder="Insert fullname">
+    <input type="file" name="avatar">
+    <input type="submit" value="Add">
+  </form>
+
+{% endblock %}

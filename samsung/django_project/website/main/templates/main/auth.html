@@ -1,0 +1,21 @@
+{% extends "main/base.html" %}
+
+{% block title %} Authorization {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-6">
+        <img src="https://raw.githubusercontent.com/salte-auth/logos/master/images/logo.svg?sanitize=true" alt="auth">
+    </div>
+    <div class="col-sm-6 mx-auto">
+        <h1 class="text-center display-4 mb-2">Authorization</h1>
+        <form class="" action="index.html" method="post">
+            <input type="text" name="username" class="form-control d-block mx-auto mt-2" placeholder="username" style ="width: 40%">
+            <input type="password" name="pass" class="form-control d-block mx-auto mt-2" placeholder="password" style ="width: 40%">
+            <input type="submit" value="GO" class="btn btn-primary w-60 mt-2 d-block mx-auto">
+        </form>
+    </div>
+</div>
+
+{% endblock %}
